@@ -1,29 +1,47 @@
 <?php
-$hasil = "";
-
-if (isset($_POST['login'])) {
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Username dan password benar
-    if ($username == "abdul ajis" && $password == "24TI066") {
-        $hasil = "Login Berhasil";
-    } else {
-        $hasil = "Username atau Password Salah";
-    }
+function salam()
+{
+    echo "Assalamu'alaikum <br>";
 }
+
+salam();
+
+function tambah($a, $b)
+{
+    $jumlah = $a + $b;
+    return $jumlah;
+}
+
+$hasil = tambah(4, 6);
+
+echo "Hasil penjumlahan: " . $hasil;
+
+function kali($a, $b)
+{
+    $jumlah = $a * $b;
+    return $jumlah;
+}
+
+$hasil = kali(4, 6);
+
+echo "Hasil perkalian: " . $hasil;
 ?>
 
-<h3>Form Login</h3>
-
-<form method="post">
-    Username : <input type="text" name="username" required><br><br>
-    Password : <input type="password" name="password" required><br><br>
-    
-    <button type="submit" name="login">Login</button>
+<form method="POST">
+    <input type="number" name="angka1" required>
+    <input type="number" name="angka2" required>
+    <button type="submit" name="kirim">Kirim</button>
 </form>
 
 <?php
-echo "<h4>$hasil</h4>";
+
+if (isset($_POST['kirim'])) {
+    $angka1 = $_POST['angka1'];
+    $angka2 = $_POST['angka2'];
+    
+
+    $hasil = tambah($angka1, $angka2);
+
+    echo "Hasil: " . $hasil;
+}
 ?>
